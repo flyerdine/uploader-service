@@ -34,8 +34,8 @@ class UploadController extends Controller
 
             $model = new Document();
             $model->link = $link;
-            $model->name = $file->getClientOriginalName();
-            $model->mime_type = $file->getClientMimeType();
+            $model->name = $file->hashName();
+            $model->mime_type = $file->getMimeType();
             $model->size = $file->getSize();
             $model->width = $dimensions['width'];
             $model->height = $dimensions['height'];
