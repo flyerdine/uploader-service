@@ -7,7 +7,7 @@ use Exception;
 
 class Authorize
 {
-   /**
+    /**
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
@@ -23,8 +23,7 @@ class Authorize
             return $this->response($message, 401);
         }
         try {
-            $validToken = 'YI5uZzpS9VUXPfpsTYdEkTYMAHOIEcBl';
-            if ($token != $validToken) {
+            if (!in_array($token, ['YI5uZzpS9VUXPfpsTYdEkTYMAHOIEcBl'])) {
                 $message = "Authorization Failed";
                 return $this->response($message, 401);
             }
